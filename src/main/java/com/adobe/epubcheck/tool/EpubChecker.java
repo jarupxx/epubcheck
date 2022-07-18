@@ -85,6 +85,8 @@ public class EpubChecker
   EPUBVersion version = EPUBVersion.VERSION_3;
   boolean expanded = false;
   boolean keep = false;
+  boolean saveonly = false;
+  boolean forcesave = false;
   boolean jsonOutput = false;
   boolean xmlOutput = false;
   boolean xmpOutput = false;
@@ -302,6 +304,10 @@ public class EpubChecker
         {
           epub = new Archive(path, true);
           epub.createArchive();
+          if (saveonly)
+          {
+            System.exit(0);
+          }
           report.setEpubFileName(epub.getEpubFile().getAbsolutePath());
           path = epub.getEpubFile().getAbsolutePath();
           mode = null;
@@ -327,7 +333,10 @@ public class EpubChecker
             // Notify if we are deleting for failures
             System.err.println(messages.get("deleting_archive"));
           }
-          epub.deleteEpubFile();
+          if (!forcesave)
+          {
+            epub.deleteEpubFile();
+          }
         }
       }
 
@@ -563,6 +572,12 @@ public class EpubChecker
               } 
             break;
           case "s":
+          case "saveonly":
+              saveonly = true;
+            break;
+          case "forcesave":
+              forcesave = true;
+            break;
           case "save":
               keep = true;
             break;
