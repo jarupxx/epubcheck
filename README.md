@@ -3,8 +3,20 @@
 
 
 
+EPUBCheck + Converter
+=========
+Add 2 options
 
-EPUBCheck
+> --saveonly:  Convert epub folders to epub (no validating)  
+> --forcesave: Always force saving epub folders to epub
+
+Run it from the command line:
+
+>  java -jar epubcheck.jar --mode exp --forcesave expfolder
+
+
+
+EPUBCheck Original readme
 =========
 
 EPUBCheck is a tool to validate the conformance of EPUB publications against the EPUB specifications.
