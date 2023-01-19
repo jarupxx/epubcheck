@@ -7,7 +7,7 @@ EPUBCheck + Converter
 =========
 Add 2 options
 
-> --saveonly:  Convert epub folders to epub (no validating)
+> --saveonly:  Convert epub folders to epub (no validating)  
 > --forcesave: Always force saving epub folders to epub
 
 Run it from the command line:
